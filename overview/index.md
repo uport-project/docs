@@ -1,6 +1,4 @@
-# uPort
-
-## Overview
+# Overview
 
 uPort is an interoperable identity network for a secure, private, decentralized web.
 
@@ -15,18 +13,18 @@ uPort makes it easy to build with decentralized identity on Ethereum. uPort's op
 uPort decentralizes identity control from centralized custodians and data silos to the edges of the network. In doing so, uPort lays the foundation for a radically free, equitable, p2p, user-centric internet society. Applications, networks, and societies that value decentralization, privacy, or security should consider integrating with the uPort network.
 
 
-## Components
+# Components
 
-#### PROTOCOLS
+## PROTOCOLS
 
 uPort consists of identity and messaging protocols that together form an interoperable identity layer for the decentralized web. uPort Identity Protocol describes a generalized identity model capable of expressing humans, businesses, applications, IoT devices, AI, and more. uPort Claims Protocol describes a standard message format that enables source attribution and that facilitates interoperability between various blockchain and identity networks. Together, these protocols form a common architecture and interface for decentralized identity that is capable of becoming a universal web standard.
 
-**uPort Identity Protocol**
+#### **uPort Identity Protocol**
 
 * Identities: An address on a decentralized network, controlled by a private signing key.
 * PKI: Decentralized public key infrastructure (PKI) that enables signature validation.
 
-**uPort Claims Protocol**
+#### **uPort Claims Protocol**
 
 * Message Format: Standards for constructing claims messages.
 * Statements: Message payload data formats. Currently supports JWTs and Ethereum transactions.
@@ -38,7 +36,7 @@ Specifications on where identity data and private keys are stored, and more. We 
 
 
 
-#### PLATFORM
+## PLATFORM
 
 The uPort Platform is our implementation of the uPort Protocol designed to make decentralized identities on Ethereum easy to create and use for developers and users. uPort's modular, open-source components can easily support any Ethereum network, and are available for you to use today.
 
