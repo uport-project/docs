@@ -69,7 +69,7 @@ We have had success with the [KJUA QR Library](https://larsjung.de/kjua/). It's 
 ```js
 uport.requestCredentials({
   requested: ['name', 'avatar', 'phone', 'country'],
-  notifcations: true,
+  notifcations: true },
   (uri) => {
 
     const qr = kjua({
