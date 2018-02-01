@@ -3,7 +3,7 @@
 
 The uPort Platform is our implementation of the uPort Protocol designed to make decentralized identities on Ethereum easy to create and use for developers and users. uPort's modular, open-source components can easily support any Ethereum network, and are available for you to use today.
 
-## **Ethereum Identity Components:**
+## **Ethereum Identity Components**:
 Decentralized identity infrastructure for the Ethereum network, implemented as smart contracts.
 
 * _[Identities](https://github.com/uport-project/uport-identity)_: uPort IDs and accounts on the Ethereum network. Current version is a Proxy Contract.
@@ -13,7 +13,7 @@ Decentralized identity infrastructure for the Ethereum network, implemented as s
 * _[Claims Registry](https://github.com/ethereum/EIPs/issues/780):_ A general purpose registry where identities can send claims messages for permanent public record. Registry contracts provide a PKI mechanism for identities to publicly claim their official uPort Document, containing critical PKI information and other metadata, in a way that can be publicly searched and discovered by other participants on the network. Actually, registry contracts can be used to store any kind of public claim. Current version is called the Ethereum Claims Registry and we submitted it for consideration as an Ethereum standard in ERC 780.
 
 
-## **Network Microservices:**
+## **Network Microservices**:
 Hosted web services that make using the uPort network simpler. The goal is for these services to be replaced by decentralized alternatives as they become more feasible.
 
 * _Nodes:_ Cloud node infrastructure required to access various decentralized networks. Improves usability for end users. Operated by Infura (http://infura.io/), another ConsenSys project.
@@ -27,7 +27,7 @@ Hosted web services that make using the uPort network simpler. The goal is for t
 * _Identity Creation:_ Exists to provide an easy way to create uPort identities on the network. Current implementation is called Unnu.
 
 
-## **Libraries:**
+## **Libraries**:
 Open source libraries for developers to quickly start integrating with the uPort network.
 
 * _[uPort Connect](https://github.com/uport-project/uport-connect)_: Enables web applications to communicate with uPort Wallet. Desktop web applications transport messages via QR codes and push notifications, while mobile web applications use applinks.
@@ -39,13 +39,3 @@ Open source libraries for developers to quickly start integrating with the uPort
 * _[uPort JWT](https://github.com/uport-project/uport-js):_ Makes it easy to verify signatures against the uPort PKI. This is currently wrapped in the uPort JS library.
 
 * _uPort Mobile SDK:_ Native mobile libraries for uPort-enabled mobile applications. Coming soon.
-
-
-## **Clients (apps)**
-Allow users, developers, and applications to interact with the uPort platform.
-
-* _[uPort Mobile Wallet](https://itunes.apple.com/us/app/uport-id/id1123434510):_ Secure mobile self-sovereign identity wallet for end users to create their identity, manage their data, and approve requests.
-
-* _[uPort App Manager](http://developer.uport.me/myapps.html):_ Web client for developers to manage the uPort identity of their applications.
-
-* _[uPort JS Client](https://github.com/uport-project/uport-js-client):_ JavaScript client for developers to interact with the uPort Platform. Built for testing and development. Can create identities, handle messages, execute signatures, and more.
