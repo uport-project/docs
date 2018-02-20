@@ -104,7 +104,7 @@ const req = {requested: ['name', 'country']}
      ...
  })
 
- 
+
 ```
 <a name="ConnectCore+requestAddress"></a>
 
@@ -141,15 +141,15 @@ Consumes a credential object and generates a signed JWT. Creates a request
 **Example**  
 ```js
 const cred = {
-   sub: '0xc3245e75d3ecd1e81a9bfb6558b6dafe71e9f347'
-   claim: {'email': 'hello@uport.me'}
+   sub: '0xc3245e75d3ecd1e81a9bfb6558b6dafe71e9f347',
+   claim: {'email': 'hello@uport.me'},
    exp: '1300819380'
  }
  connect.attestCredentials(cred).then(res => {
    // response okay, received in uPort app
  })
 
- 
+
 ```
 <a name="ConnectCore+request"></a>
 
@@ -212,7 +212,7 @@ const txobject = {
    ...
  })
 
- 
+
 ```
 <a name="ConnectCore+addAppParameters"></a>
 
@@ -312,7 +312,7 @@ const req = {requested: ['name', 'country']}
      ...
  })
 
- 
+
 ```
 <a name="ConnectCore+requestAddress"></a>
 
@@ -357,7 +357,7 @@ const cred = {
    // response okay, received in uPort app
  })
 
- 
+
 ```
 <a name="ConnectCore+request"></a>
 
@@ -420,7 +420,7 @@ const txobject = {
    ...
  })
 
- 
+
 ```
 <a name="ConnectCore+addAppParameters"></a>
 
@@ -435,4 +435,3 @@ Adds application specific data to a transaction object. Then uses this data
 | --- | --- | --- |
 | txobj | <code>Object</code> | transaction object |
 | callbackUrl | <code>String</code> | application callback url |
-
