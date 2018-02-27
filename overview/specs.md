@@ -1,4 +1,4 @@
-# Specs
+# SPECS
 
  _[uPort Platform Specifications](https://github.com/uport-project/specs):_ uPort's platform specification repository.
 
