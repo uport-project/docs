@@ -1,3 +1,18 @@
+---
+title: "Protocols"
+lesson: 3
+chapter: "Protocol"
+cover: "https://unsplash.it/400/300/?random?BoldMage"
+date: "01/01/2017"
+category: "overview"
+type: "lesson"
+tags:
+    - programming
+    - stuff
+    - other
+---
+
+
 # PROTOCOLS
 
 uPort consists of identity and messaging protocols that together form an interoperable identity layer for the decentralized web. uPort Identity Protocol describes a generalized identity model capable of expressing humans, businesses, applications, IoT devices, AI, and more. uPort Claims Protocol describes a standard message format that enables source attribution and that facilitates interoperability between various blockchain and identity networks. Together, these protocols form a common architecture and interface for decentralized identity that is capable of becoming a universal web standard.

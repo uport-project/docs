@@ -1,3 +1,17 @@
+---
+title: "Signing Transactions"
+lesson: 3
+chapter: "Signing Transactions"
+cover: "https://unsplash.it/400/300/?random?BoldMage"
+date: "01/01/2017"
+category: "guides"
+type: "lesson"
+tags:
+    - programming
+    - stuff
+    - other
+---
+
 # Signing Transactions
 
 uPort comes pre-baked with a web3 instance that calls to [Infura](https://github.com/ethereumjs/testrpc), our p2p swarm of nodes we have built so you don't need to stand up your own. All you need to do is grab our `web3` object and instantiate a smart contract javascript object with a **provided ABI**.

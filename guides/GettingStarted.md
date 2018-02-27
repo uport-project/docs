@@ -1,3 +1,18 @@
+---
+title: "Getting Started"
+lesson: 0
+chapter: "Getting Started"
+cover: "https://unsplash.it/400/300/?random?BoldMage"
+date: "01/01/2017"
+category: "guides"
+type: "lesson"
+tags:
+    - programming
+    - stuff
+    - other
+---
+
+
 # Getting Started
 
 Welcome to the uPort usage guide!
@@ -72,4 +87,4 @@ The clientID is the public address of your app and the signer (wrapped with the 
 ```js
 const web3 = uport.getWeb3()
 export { web3, uport, MNID }
-```          
+```

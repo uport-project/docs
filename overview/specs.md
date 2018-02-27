@@ -1,3 +1,17 @@
+---
+title: "Specs"
+lesson: 3
+chapter: "Specs"
+cover: "https://unsplash.it/400/300/?random?BoldMage"
+date: "01/01/2017"
+category: "overview"
+type: "lesson"
+tags:
+    - programming
+    - stuff
+    - other
+---
+
 # SPECS
 
  _[uPort Platform Specifications](https://github.com/uport-project/specs):_ uPort's platform specification repository.

@@ -1,3 +1,17 @@
+---
+title: "Attesting Credentials"
+lesson: 1
+chapter: "Attesting Credentials"
+cover: "https://unsplash.it/400/300/?random?BoldMage"
+date: "01/01/2017"
+category: "guides"
+type: "lesson"
+tags:
+    - programming
+    - stuff
+    - other
+---
+
 # Attesting Credentials
 
 One of the core needs of Web 3.0 is to build trust in a self-sovereign world. We establish facts which are not mathematically derived by social consensus. To create social consensus, actors must attest to things being true. We can do this with uPort using the `uport.attestCredentials` function.
@@ -28,4 +42,3 @@ uport.attestCredentials({
 ## Attesting multiple credentials
 
 **Under construction**
-    

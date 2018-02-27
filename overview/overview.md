@@ -1,3 +1,17 @@
+---
+title: "Overview"
+lesson: 0
+chapter: "Overview"
+cover: "https://unsplash.it/400/300/?random?BoldMage"
+date: "01/01/2017"
+category: "overview"
+type: "lesson"
+tags:
+    - programming
+    - stuff
+    - other
+---
+
 # OVERVIEW
 
 uPort is an interoperable identity network for a secure, private, decentralized web.

@@ -1,3 +1,16 @@
+---
+title: "Platform"
+lesson: 2
+chapter: "Platform"
+cover: "https://unsplash.it/400/300/?random?BoldMage"
+date: "01/01/2017"
+category: "overview"
+type: "lesson"
+tags:
+    - programming
+    - stuff
+    - other
+---
 
 # PLATFORM
 
