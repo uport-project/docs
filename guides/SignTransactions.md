@@ -1,11 +1,11 @@
 ---
 title: "Signing Transactions"
-lesson: 3
+index: 3
 chapter: "Signing Transactions"
 cover: "https://unsplash.it/400/300/?random?BoldMage"
 date: "01/01/2017"
 category: "guides"
-type: "lesson"
+type: "content"
 tags:
     - programming
     - stuff

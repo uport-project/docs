@@ -1,11 +1,11 @@
 ---
 title: "Specs"
-lesson: 3
+index: 3
 chapter: "Specs"
 cover: "https://unsplash.it/400/300/?random?BoldMage"
 date: "01/01/2017"
 category: "overview"
-type: "lesson"
+type: "content"
 tags:
     - programming
     - stuff

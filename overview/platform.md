@@ -1,11 +1,11 @@
 ---
 title: "Platform"
-lesson: 2
+index: 2
 chapter: "Platform"
 cover: "https://unsplash.it/400/300/?random?BoldMage"
 date: "01/01/2017"
 category: "overview"
-type: "lesson"
+type: "content"
 tags:
     - programming
     - stuff

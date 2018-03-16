@@ -26,11 +26,11 @@ Place a modified version of the following directly at the top of each markdown f
 ```
 ---
 title: "Attesting Credentials"
-lesson: 1
+index: 1
 cover: "https://unsplash.it/400/300/?random?BoldMage"
 date: "01/01/2017"
 category: "guides"
-type: "lesson"
+type: "content"
 tags:
     - programming
     - stuff
@@ -49,9 +49,9 @@ tags:
 
   Used for the page title as well as navigation links.  They should be kept short and be the same as H1 headings in most cases.  There may be times when these should differ, for example, having a link to display by a different name than represented by the heading.
 
-#### Front matter (lesson)
+#### Front matter (index)
 
-  Think of this as a numerical index for the content; they are used to sort each category and control the ordering of navigation links.
+  Think of this as the display order for the content; it is used to sort each category and control the ordering of navigation links.
 
 #### Front matter (category)
 
@@ -59,4 +59,4 @@ tags:
 
 #### Front matter (type)
 
-  The type is important for publishing.  If the type is not "lesson" it will not be published or displayed.
+  The type is important for publishing.  If the type is not "content" it will not be published or displayed.

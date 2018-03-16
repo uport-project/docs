@@ -1,11 +1,11 @@
 ---
 title: "Requesting Credentials"
-lesson: 1
+index: 1
 chapter: "Requesting Credentials"
 cover: "https://unsplash.it/400/300/?random?BoldMage"
 date: "01/01/2017"
 category: "guides"
-type: "lesson"
+type: "content"
 tags:
     - programming
     - stuff

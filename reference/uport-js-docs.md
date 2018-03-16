@@ -1,11 +1,10 @@
 ---
 title: "Uport JS"
-lesson: 1
-chapter: "Uport JS"
+index: 2
 cover: "https://unsplash.it/400/300/?random?BoldMage"
 date: "01/01/2017"
 category: "reference"
-type: "lesson"
+type: "content"
 tags:
     - programming
     - stuff
