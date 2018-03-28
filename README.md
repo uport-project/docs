@@ -41,9 +41,11 @@ tags:
 
 **The following keys are required:**
 1. title
-1. lesson
 1. category
 1. type
+
+**The following are optional:**
+1. index
 
 #### Front matter (title)
 
@@ -51,7 +53,7 @@ tags:
 
 #### Front matter (index)
 
-  Think of this as the display order for the content; it is used to sort each category and control the ordering of navigation links.
+  Think of this as the display order for the content; it is used to sort each category and control the ordering of navigation links.  *Note:* if the frontmatter does not contain an index, the site-generator will assume it is sub-content that does not belong in table of contents or navigation menu.
 
 #### Front matter (category)
 
