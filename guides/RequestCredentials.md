@@ -1,18 +1,202 @@
 ---
 title: "Requesting Credentials"
 index: 1
-chapter: "Requesting Credentials"
-cover: "https://unsplash.it/400/300/?random?BoldMage"
-date: "01/01/2017"
 category: "guides"
 type: "content"
-tags:
-    - programming
-    - stuff
-    - other
 ---
 
+<style type="text/css">
+
+  li {
+    font-size: 16px;
+  }
+
+  .overview-list {
+      margin-left: 0;
+      padding-right: 0;
+      list-style-type: none;
+  }
+
+  .overview-list li {
+      counter-increment: list-counter;
+      list-style: inside;
+  }
+
+  .overview-list li::before {
+      content: counter(list-counter);
+      /* margin-right: 5px; */
+      /* font-size: 80%; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  .overview-list1 ol {
+      counter-increment: list-counter1 5;
+  }
+
+  .overview-list1 li {
+      counter-increment: list-counter1;
+      list-style: inside;
+  }
+
+  .overview-list1 li::before {
+      content: counter(list-counter1) "a";
+      /* margin-right: 5px; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  .overview-list2 ol {
+      counter-increment: list-counter2 5;
+  }
+
+  .overview-list2 li {
+      counter-increment: list-counter2;
+      list-style: inside;
+  }
+
+  .overview-list2 li::before {
+      content: counter(list-counter2) "b";
+      /* margin-right: 5px; */
+      /* font-size: 80%; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  .overview-list3 ol {
+      counter-increment: list-counter3 8;
+  }
+
+  .overview-list3 li {
+      counter-increment: list-counter3;
+      list-style: inside;
+  }
+
+  .overview-list3 li::before {
+      content: counter(list-counter3);
+      /* margin-right: 5px; */
+      /* font-size: 80%; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  td {
+    align: left;
+  }
+
+  .overview-list p {
+    font-size: .9em;
+  }
+
+  img[alt="small-diag"] {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 550px;
+    display: block;
+  }
+
+  img[alt="diag"] {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 600px;
+  }
+
+  hr {
+    border: 0;
+    height: 0;
+    color: rgba(230, 224, 248);
+    background-color: rgba(230, 224, 248);
+    border-color: rgba(230, 224, 248);
+    border-top: 1px solid;
+  }
+
+</style>
+
 # Requesting Credentials
+
+## Request Data from a User
+
+### Desktop web
+
+<div class="overview-list" markdown=1>
+
+1. Browser displays QR code with URI
+1. Browser starts polling chasqui using the sessionId to check if Mobile has posted the address & any other info required by the 3rd party app.
+1. Mobile scans QR code, displays card asking the user to share their address (and, optionally, other relevant data)
+1. If user consents: Mobile grabs sessionId from URI, posts address & data to the Chasqui API using the sessionId
+1. Browser grabs the address & data from Chasqui, removes QR code from UI
+
+</div>
+
+![small-diag](diag1a.svg)
+
+### Mobile web
+
+<div class="overview-list" markdown=1>
+
+1. Browser opens URL from the QR
+1. An alert is shown to the user asking if they want to open in the uPort app
+1. If user agrees, uPort app opens and displays card asking the user to share their address or other data (e.g., push token, attestation)
+1. If user agrees, uPort app creates a JWT that includes the requested data and signs it with the device key.
+1. Mobile browser is opened and an access_token field is appended to the URL. The access_token field contains the signed JWT.
+1. Mobile browser grabs the access_token JWT from the URL and extracts the iss (issuer) field which contains the uPort identity (address) & other requested data
+
+</div>
+
+![small-diag](diag1b.svg)
+
 
   The first and most basic step you should take is to allow your user to connect their uPort to your app. The `requestCredentials` method is how you accomplish this, similar in concept to logging in , except there is no server session for you to manage. All you need to do to "connect" is to disclose the requested credentials you have in your uPort identity.
 

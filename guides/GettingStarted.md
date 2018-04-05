@@ -1,15 +1,8 @@
 ---
 title: "Getting Started"
 index: 0
-chapter: "Getting Started"
-cover: "https://unsplash.it/400/300/?random?BoldMage"
-date: "01/01/2017"
 category: "guides"
 type: "content"
-tags:
-    - programming
-    - stuff
-    - other
 ---
 
 

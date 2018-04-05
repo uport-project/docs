@@ -1,18 +1,190 @@
 ---
 title: "Signing Transactions"
 index: 3
-chapter: "Signing Transactions"
-cover: "https://unsplash.it/400/300/?random?BoldMage"
-date: "01/01/2017"
 category: "guides"
 type: "content"
-tags:
-    - programming
-    - stuff
-    - other
 ---
 
+<style type="text/css">
+
+  li {
+    font-size: 16px;
+  }
+
+  .overview-list {
+      margin-left: 0;
+      padding-right: 0;
+      list-style-type: none;
+  }
+
+  .overview-list li {
+      counter-increment: list-counter;
+      list-style: inside;
+  }
+
+  .overview-list li::before {
+      content: counter(list-counter);
+      /* margin-right: 5px; */
+      /* font-size: 80%; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  .overview-list1 ol {
+      counter-increment: list-counter1 5;
+  }
+
+  .overview-list1 li {
+      counter-increment: list-counter1;
+      list-style: inside;
+  }
+
+  .overview-list1 li::before {
+      content: counter(list-counter1) "a";
+      /* margin-right: 5px; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  .overview-list2 ol {
+      counter-increment: list-counter2 5;
+  }
+
+  .overview-list2 li {
+      counter-increment: list-counter2;
+      list-style: inside;
+  }
+
+  .overview-list2 li::before {
+      content: counter(list-counter2) "b";
+      /* margin-right: 5px; */
+      /* font-size: 80%; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  .overview-list3 ol {
+      counter-increment: list-counter3 8;
+  }
+
+  .overview-list3 li {
+      counter-increment: list-counter3;
+      list-style: inside;
+  }
+
+  .overview-list3 li::before {
+      content: counter(list-counter3);
+      /* margin-right: 5px; */
+      /* font-size: 80%; */
+      background-color: #7958d8;
+      color: #f9f9fa;
+      font-weight: bold;
+      font-size: .9em;
+      padding: 2px 5px;
+      border-radius: 15px;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1.8em;
+      margin-top: .4em;
+      margin-right: .3em;
+      text-align: center;
+      direction: rtl;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  td {
+    align: left;
+  }
+
+  .overview-list p {
+    font-size: .9em;
+  }
+
+  img[alt="small-diag"] {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 550px;
+    display: block;
+  }
+
+  img[alt="diag"] {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 600px;
+  }
+
+  hr {
+    border: 0;
+    height: 0;
+    color: rgba(230, 224, 248);
+    background-color: rgba(230, 224, 248);
+    border-color: rgba(230, 224, 248);
+    border-top: 1px solid;
+  }
+
+</style>
+
+
 # Signing Transactions
+
+## Ask User to Sign Tx
+
+<div class="overview-list" markdown=1>
+
+1. Browser displays QR code with randomly generated sessionID in a URI
+1. Browser starts polling chasqui using the sessionId to check if Mobile has posted the transaction hash.
+1. If mobile-to-mobile, this follows the mobile interaction pattern (using URIs & JWTs instead of Chasqui shown in diagram A)
+1. Mobile scans QR code, displays card asking the user to sign a transaction. A system dialog (Touch ID / Face ID / Device PIN) is shown in order to access the device key.
+1. If user consents: Mobile fetches the transaction data from the URL, as well as the sessionId, then signs the transaction data with the device key.
+1. Device sends the signed tx to sensui.uport.me. Sensui wraps the signed tx in its own transaction and sends the wrapped tx to a relay contract via rinkeby.infura.io.
+1. Infura sends the tx hash back to Sensui, which passes it to the mobile app. Mobile posts the transaction hash to chasqui using the sessionId.
+1. Browser grabs the transaction hash from Chasqui, removes QR code from UI, and updates UI accordingly
+1. The relay contract confirms the original signed tx hasn’t been tampered with, then forwards the entire wrapped tx through the controller contract to the proxy.
+1. Proxy contract forwards the tx to its intended destination, gas paid for by Sensui.
+
+</div>
+
+![diag](diag2.svg)
 
 uPort comes pre-baked with a web3 instance that calls to [Infura](https://github.com/ethereumjs/testrpc), our p2p swarm of nodes we have built so you don't need to stand up your own. All you need to do is grab our `web3` object and instantiate a smart contract javascript object with a **provided ABI**.
 

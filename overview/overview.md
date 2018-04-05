@@ -1,15 +1,8 @@
 ---
 title: "Overview"
 index: 0
-chapter: "Overview"
-cover: "https://unsplash.it/400/300/?random?BoldMage"
-date: "01/01/2017"
 category: "overview"
 type: "content"
-tags:
-    - programming
-    - stuff
-    - other
 ---
 
 # OVERVIEW
