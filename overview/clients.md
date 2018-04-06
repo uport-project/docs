@@ -1,7 +1,7 @@
 ---
 title: "Clients (apps)"
 index: 3
-category: "guides"
+category: "overview"
 type: "content"
 ---
 

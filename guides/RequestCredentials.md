@@ -1,6 +1,6 @@
 ---
 title: "Requesting Credentials"
-index: 1
+index: 2
 category: "guides"
 type: "content"
 ---
@@ -15,6 +15,10 @@ type: "content"
       margin-left: 0;
       padding-right: 0;
       list-style-type: none;
+  }
+
+  .overview-list ol {
+      padding-bottom: 20px;
   }
 
   .overview-list li {
@@ -35,90 +39,7 @@ type: "content"
       display: inline-block;
       width: 1em;
       margin-left: -1.8em;
-      margin-top: .4em;
-      margin-right: .3em;
-      text-align: center;
-      direction: rtl;
-  }
-
-  .overview-list1 ol {
-      counter-increment: list-counter1 5;
-  }
-
-  .overview-list1 li {
-      counter-increment: list-counter1;
-      list-style: inside;
-  }
-
-  .overview-list1 li::before {
-      content: counter(list-counter1) "a";
-      /* margin-right: 5px; */
-      background-color: #7958d8;
-      color: #f9f9fa;
-      font-weight: bold;
-      font-size: .9em;
-      padding: 2px 5px;
-      border-radius: 15px;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1.8em;
-      margin-top: .4em;
-      margin-right: .3em;
-      text-align: center;
-      direction: rtl;
-  }
-
-  .overview-list2 ol {
-      counter-increment: list-counter2 5;
-  }
-
-  .overview-list2 li {
-      counter-increment: list-counter2;
-      list-style: inside;
-  }
-
-  .overview-list2 li::before {
-      content: counter(list-counter2) "b";
-      /* margin-right: 5px; */
-      /* font-size: 80%; */
-      background-color: #7958d8;
-      color: #f9f9fa;
-      font-weight: bold;
-      font-size: .9em;
-      padding: 2px 5px;
-      border-radius: 15px;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1.8em;
-      margin-top: .4em;
-      margin-right: .3em;
-      text-align: center;
-      direction: rtl;
-  }
-
-  .overview-list3 ol {
-      counter-increment: list-counter3 8;
-  }
-
-  .overview-list3 li {
-      counter-increment: list-counter3;
-      list-style: inside;
-  }
-
-  .overview-list3 li::before {
-      content: counter(list-counter3);
-      /* margin-right: 5px; */
-      /* font-size: 80%; */
-      background-color: #7958d8;
-      color: #f9f9fa;
-      font-weight: bold;
-      font-size: .9em;
-      padding: 2px 5px;
-      border-radius: 15px;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1.8em;
-      margin-top: .4em;
+      margin-top: .8em;
       margin-right: .3em;
       text-align: center;
       direction: rtl;
@@ -166,7 +87,7 @@ type: "content"
 
 # Requesting Credentials
 
-## Request Data from a User
+![small-diag](diag1a.svg)
 
 ### Desktop web
 
@@ -180,7 +101,7 @@ type: "content"
 
 </div>
 
-![small-diag](diag1a.svg)
+![small-diag](diag1b.svg)
 
 ### Mobile web
 
@@ -194,9 +115,6 @@ type: "content"
 1. Mobile browser grabs the access_token JWT from the URL and extracts the iss (issuer) field which contains the uPort identity (address) & other requested data
 
 </div>
-
-![small-diag](diag1b.svg)
-
 
   The first and most basic step you should take is to allow your user to connect their uPort to your app. The `requestCredentials` method is how you accomplish this, similar in concept to logging in , except there is no server session for you to manage. All you need to do to "connect" is to disclose the requested credentials you have in your uPort identity.
 

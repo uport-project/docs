@@ -35,7 +35,7 @@ type: "content"
       display: inline-block;
       width: 1em;
       margin-left: -1.8em;
-      margin-top: .4em;
+      margin-top: .8em;
       margin-right: .3em;
       text-align: center;
       direction: rtl;
@@ -62,7 +62,7 @@ type: "content"
       display: inline-block;
       width: 1em;
       margin-left: -1.8em;
-      margin-top: .4em;
+      margin-top: .8em;
       margin-right: .3em;
       text-align: center;
       direction: rtl;
@@ -90,7 +90,7 @@ type: "content"
       display: inline-block;
       width: 1em;
       margin-left: -1.8em;
-      margin-top: .4em;
+      margin-top: .8em;
       margin-right: .3em;
       text-align: center;
       direction: rtl;
@@ -98,6 +98,7 @@ type: "content"
 
   .overview-list3 ol {
       counter-increment: list-counter3 8;
+      padding-bottom: 20px;
   }
 
   .overview-list3 li {
@@ -118,7 +119,7 @@ type: "content"
       display: inline-block;
       width: 1em;
       margin-left: -1.8em;
-      margin-top: .4em;
+      margin-top: .8em;
       margin-right: .3em;
       text-align: center;
       direction: rtl;
@@ -167,11 +168,11 @@ type: "content"
 
 # Attesting Credentials
 
-## Send Attestation to a User
+![diag](diag3.svg)
 
 <div class="overview-list" markdown=1>
 
-1. Browser displays a QR code (if desktop) or loads a URI that opens the uPort app (if mobile) to initiate the login / share data flow outlined in diagram (A)
+1. Browser displays a QR code (if desktop) or loads a URI that opens the uPort app (if mobile) to initiate the login / share data flow outlined in [requesting credentials](/requestcredentials)
 1. After the user scans (on desktop) or consents to open the app (on mobile), the app displays a card asking the user to share their data. This will always contain the user’s address and may contain a push token as well as any other data the app chooses to request.
 1. If user consents, mobile app posts the address (and maybe also a push token or other data) via Chasqui (if desktop) or encoded in a JWT appended to a URI (if mobile)
 1. Browser grabs the address & data from Chasqui or the URL and rremoves QR code from UI.
@@ -205,8 +206,6 @@ type: "content"
 1. If the user consents, the uPort app saves the attestation token to their device.
 
 </div>
-
-![diag](diag3.svg)
 
 One of the core needs of Web 3.0 is to build trust in a self-sovereign world. We establish facts which are not mathematically derived by social consensus. To create social consensus, actors must attest to things being true. We can do this with uPort using the `uport.attestCredentials` function.
 

@@ -17,6 +17,10 @@ type: "content"
       list-style-type: none;
   }
 
+  .overview-list ol {
+      padding-bottom: 20px;
+  }
+
   .overview-list li {
       counter-increment: list-counter;
       list-style: inside;
@@ -35,90 +39,7 @@ type: "content"
       display: inline-block;
       width: 1em;
       margin-left: -1.8em;
-      margin-top: .4em;
-      margin-right: .3em;
-      text-align: center;
-      direction: rtl;
-  }
-
-  .overview-list1 ol {
-      counter-increment: list-counter1 5;
-  }
-
-  .overview-list1 li {
-      counter-increment: list-counter1;
-      list-style: inside;
-  }
-
-  .overview-list1 li::before {
-      content: counter(list-counter1) "a";
-      /* margin-right: 5px; */
-      background-color: #7958d8;
-      color: #f9f9fa;
-      font-weight: bold;
-      font-size: .9em;
-      padding: 2px 5px;
-      border-radius: 15px;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1.8em;
-      margin-top: .4em;
-      margin-right: .3em;
-      text-align: center;
-      direction: rtl;
-  }
-
-  .overview-list2 ol {
-      counter-increment: list-counter2 5;
-  }
-
-  .overview-list2 li {
-      counter-increment: list-counter2;
-      list-style: inside;
-  }
-
-  .overview-list2 li::before {
-      content: counter(list-counter2) "b";
-      /* margin-right: 5px; */
-      /* font-size: 80%; */
-      background-color: #7958d8;
-      color: #f9f9fa;
-      font-weight: bold;
-      font-size: .9em;
-      padding: 2px 5px;
-      border-radius: 15px;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1.8em;
-      margin-top: .4em;
-      margin-right: .3em;
-      text-align: center;
-      direction: rtl;
-  }
-
-  .overview-list3 ol {
-      counter-increment: list-counter3 8;
-  }
-
-  .overview-list3 li {
-      counter-increment: list-counter3;
-      list-style: inside;
-  }
-
-  .overview-list3 li::before {
-      content: counter(list-counter3);
-      /* margin-right: 5px; */
-      /* font-size: 80%; */
-      background-color: #7958d8;
-      color: #f9f9fa;
-      font-weight: bold;
-      font-size: .9em;
-      padding: 2px 5px;
-      border-radius: 15px;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1.8em;
-      margin-top: .4em;
+      margin-top: .8em;
       margin-right: .3em;
       text-align: center;
       direction: rtl;
@@ -167,7 +88,7 @@ type: "content"
 
 # Signing Transactions
 
-## Ask User to Sign Tx
+![diag](diag2.svg)
 
 <div class="overview-list" markdown=1>
 
@@ -183,8 +104,6 @@ type: "content"
 1. Proxy contract forwards the tx to its intended destination, gas paid for by Sensui.
 
 </div>
-
-![diag](diag2.svg)
 
 uPort comes pre-baked with a web3 instance that calls to [Infura](https://github.com/ethereumjs/testrpc), our p2p swarm of nodes we have built so you don't need to stand up your own. All you need to do is grab our `web3` object and instantiate a smart contract javascript object with a **provided ABI**.
 
