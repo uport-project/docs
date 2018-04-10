@@ -5,87 +5,9 @@ category: "guides"
 type: "content"
 ---
 
-<style type="text/css">
-
-  li {
-    font-size: 16px;
-  }
-
-  .overview-list {
-      margin-left: 0;
-      padding-right: 0;
-      list-style-type: none;
-  }
-
-  .overview-list ol {
-      padding-bottom: 20px;
-  }
-
-  .overview-list li {
-      counter-increment: list-counter;
-      list-style: inside;
-  }
-
-  .overview-list li::before {
-      content: counter(list-counter);
-      /* margin-right: 5px; */
-      /* font-size: 80%; */
-      background-color: #7958d8;
-      color: #f9f9fa;
-      font-weight: bold;
-      font-size: .9em;
-      padding: 2px 5px;
-      border-radius: 15px;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1.8em;
-      margin-top: .8em;
-      margin-right: .3em;
-      text-align: center;
-      direction: rtl;
-  }
-
-  table {
-    table-layout: fixed;
-    width: 100%;
-  }
-
-  td {
-    align: left;
-  }
-
-  .overview-list p {
-    font-size: .9em;
-  }
-
-  img[alt="small-diag"] {
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 550px;
-    display: block;
-  }
-
-  img[alt="diag"] {
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    max-width: 600px;
-  }
-
-  hr {
-    border: 0;
-    height: 0;
-    color: rgba(230, 224, 248);
-    background-color: rgba(230, 224, 248);
-    border-color: rgba(230, 224, 248);
-    border-top: 1px solid;
-  }
-
-</style>
-
 # Requesting Credentials
+
+The first and most basic step you should take is to allow your user to connect their uPort to your app. Uport-connect's `requestCredentials` method is how you accomplish this, similar in concept to logging in , except there is no server session for you to manage. All you need to do to "connect" is to disclose the requested credentials you have in your uPort identity.
 
 ![small-diag](diag1a.svg)
 
@@ -115,8 +37,6 @@ type: "content"
 1. Mobile browser grabs the access_token JWT from the URL and extracts the iss (issuer) field which contains the uPort identity (address) & other requested data
 
 </div>
-
-  The first and most basic step you should take is to allow your user to connect their uPort to your app. The `requestCredentials` method is how you accomplish this, similar in concept to logging in , except there is no server session for you to manage. All you need to do to "connect" is to disclose the requested credentials you have in your uPort identity.
 
 ## Calling the request method
 
