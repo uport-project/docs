@@ -1,5 +1,5 @@
 ---
-title: "Attesting Credentials"
+title: "Private Chain Deployment"
 index: 3
 category: "guides"
 type: "content"
