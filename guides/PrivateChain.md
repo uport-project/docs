@@ -1,3 +1,10 @@
+---
+title: "Attesting Credentials"
+index: 3
+category: "guides"
+type: "content"
+---
+
 # Private Chain Deployment
 
 The uPort platform supports deployment of our core infrastructure on private Ethereum blockchains.
