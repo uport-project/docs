@@ -46,14 +46,8 @@ Place a modified version of the following directly at the top of each markdown f
 ---
 title: "Attesting Credentials"
 index: 1
-cover: "https://unsplash.it/400/300/?random?BoldMage"
-date: "01/01/2017"
 category: "guides"
 type: "content"
-tags:
-    - programming
-    - stuff
-    - other
 ---
 
 ```
