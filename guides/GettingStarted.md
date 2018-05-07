@@ -36,7 +36,7 @@ Next we shall regsiter an application on the blockchain.
 
 When a users interacts with an app, they will desire to see relevant information, a picture, and any other helpful indicators on their transacation cards that this is the correct endpoint they wish to interact with. This registration process will create an identity for your app so that this becomes possible, and for your frontend to know where to listen to changes on the blockchain.
 
-Let's go create an app over at the [uPort App Manager](https://developer.uport.me/myapps.html).
+Let's go create an app over at the [uPort App Manager](https://appmanager.uport.me).
 
 **Make sure to save the signing key somewhere secure! This will not be stored in browser for you for security reasons**.
 
