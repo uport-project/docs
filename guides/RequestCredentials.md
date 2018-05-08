@@ -42,7 +42,7 @@ The first and most basic step you should take is to allow your user to connect t
 
 **By default** the `uport-connect` library will fire a QR image inside of an injected global modal to help you get up and running quickly.
 
-**This can be disabled** by intercepting the URI so you may use another library to customize the look and feel of the QR image. See [Custom QR Styling](#custom-qr-styling)
+**This can be disabled** by intercepting the URI so you may use another library to customize the look and feel of the QR image.
 
 Once the user has scanned the displayed QR image, and has submitted their credentials, the promise should resolve with a Schema.org person JSON data payload. You can then handle this data however you desire in the then function.
 
@@ -96,37 +96,3 @@ uport.requestCredentials({
     // Do something after they have disclosed credentials
 })
 ```
-
-## Custom QR Styling (web)
-
-We have had success with the [KJUA QR Library](https://larsjung.de/kjua/). It's also recommended you wrap the QR or create a seperate button for mobile.
-
-```js
-uport.requestCredentials({
-  requested: ['name', 'avatar', 'phone', 'country'],
-  notifcations: true },
-  (uri) => {
-
-    const qr = kjua({
-      text: uri,
-      fill: '#000000',
-      size: 400,
-      back: 'rgba(255,255,255,1)'
-    })
-
-    // Create wrapping link for mobile touch
-    let aTag = document.createElement('a')
-    aTag.href = uri
-
-    // Nest QR in <a> and inject
-    aTag.appendChild(qr)
-    document.querySelector('#kqr').appendChild(aTag)
-  }
-  }).then((userProfile) => {
-    // Do something after they have disclosed credentials
-})
-```
-
-## Logging in via Mobile (sdk)
-
-**Under construction**

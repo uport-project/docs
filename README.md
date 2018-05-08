@@ -1,11 +1,11 @@
 uPort Docs
 ============
 
-Our developer site that is built from this repository can be found here [developer.uport.me](https://developer.uport.me). The developer site generator is located [here](https://github.com/uport-project/docs-site).
+Our developer site that is built from this repository can be found here [developer.uport.me](https://developer.uport.me). The developer site generator is located [here](https://github.com/uport-project/uport-project.github.io).
 
 ## uPort markdown conventions for doc-site generation
 
-The uPort developer site generator assumes "convention over configuration", so it is configured to behave a certain way as long as basic conventions are followed.  For the  markdown to be included into our documentation site, consider the following.
+The uPort site generator assumes convention over configuration.  For the  markdown to be included into our documentation site, consider the following.
 
 ### Repository guidelines
 
