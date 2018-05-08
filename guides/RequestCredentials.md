@@ -86,15 +86,19 @@ uport.requestCredentials({
 
 ## Verifying credentials
 
-To verify the signature on a credential you have received, pass the response token to the uPort JS `credentials.receive()` function, which will look up the user's public key in the [uPort Registry](https://developer.uport.me/pki/index) and confirm it matches the credential's signature.
+To verify the signature on a credential you have received, pass the JWT given in the response to the uPort JS `credentials.receive()` function, which will look up the user's public key in the [uPort Registry](https://developer.uport.me/pki/index) and confirm it matches the credential's signature.
 
-```
-const resToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJyZXF1Z....'
- credentials.receive(resToken).then(res => {
-     const credentials = res.verified
-         const name =  res.name
-     ...
- })
+```js
+const JWT = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJyZXF1Z....'
+
+credentials.receive(jwt).then((creds) => {
+  if (creds.address == creds.verified[0].sub)
+  {
+    console.log('Credential verified.');
+  } else {
+    console.log('Verification failed.');
+  }
+})
  ```
 
 ## Enabling Push Notifications
@@ -104,7 +108,7 @@ When a transaction is going to be signed, if the `notifications` flag is set to 
 ```js
 uport.requestCredentials({
   requested: ['name', 'avatar', 'phone', 'country'],
-  notifcations: true
+  notifications: true
   }).then((userProfile) => {
     // Do something after they have disclosed credentials
 })
