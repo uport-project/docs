@@ -77,7 +77,15 @@ The clientID is the public address of your app and the signer (wrapped with the 
 
 **We should also export the `web3` and `MNID` objects from the resulting uport object for signing transactions later.**
 
+More information about the MNID object can be found [here](https://github.com/uport-project/mnid)
+
+```bash
+npm install --save mnid
+```
+
 ```js
+const MNID = require('mnid')
 const web3 = uport.getWeb3()
+
 export { web3, uport, MNID }
 ```
