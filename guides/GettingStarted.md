@@ -44,7 +44,7 @@ Let's go create an app over at the [uPort App Manager](https://appmanager.uport.
 
 We now have the mobile uPort app and a registered application. Let's install the (uport-connect)[https://github.com/uport-project/uport-connect] and (mnid)[https://github.com/uport-project/mnid] libraries in our project.
 
-**Please make sure you have (Node.js)[https://nodejs.org/en/] version 8 or higher installed**
+**Please make sure you have (Node.js)[https://nodejs.org/en/] version 8 or higher is installed**
 
 uPort and its depending libraries are dependent on the Node.js ecosystem.
 
@@ -52,8 +52,14 @@ _Native (iOS & Android) Application libraries are in the works._
 
 Go to your Terminal and `cd` to the root directory of your project folder.
 
-From the root directory, install the two libraries with the Terminal commands below.
+From the root directory, create a new node.js project and install the two libraries with the Terminal commands below.
 
+Create the node.js project
+```bash
+npm init
+```
+
+Install the libraries
 ```bash
 npm install --save uport-connect
 ```
@@ -63,7 +69,7 @@ npm install --save mnid
 
 ## Quickstart
 
-Copy and paste this code into a new file.
+Copy and paste this code into a new javascript file in the root directory.
 
 ```js
 // index.js
