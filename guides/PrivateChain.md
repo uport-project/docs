@@ -1,6 +1,6 @@
 ---
 title: "Private Chain Deployment"
-index: 3
+index: 4
 category: "guides"
 type: "content"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Attesting Credentials"
-index: 1
+index: 2
 category: "guides"
 type: "content"
 ---

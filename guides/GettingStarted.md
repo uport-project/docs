@@ -100,7 +100,7 @@ const uport = new uportConnect.Connect('NAME_OF_DAPP', {
 })
 ```
 
-Next we create an object from the `Connect` function by passing in the application name, `uriHandler` and an object with `mnidAddress` and `signingKey` assigned as values to `cliendId:` and `signer:`.  If a network is not specified *Rinkeby* will be the default.
+Next we create an object from the `Connect` function by passing in the application name, the handler function `uriHandler`, and an object with `mnidAddress` and `signingKey` assigned as values to `cliendId:` and `signer:`.  If a network is not specified *Rinkeby* will be the default.
 
 ```js
 uport.requestCredentials({
