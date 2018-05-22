@@ -8,127 +8,90 @@ type: "content"
 
 # Getting Started
 
-Welcome to the uPort usage guide!
+Welcome! The goal of this guide is to get you set up quickly with a skeleton project and to familiarize you with a few basic concepts.  If you have any questions or difficulties, head over to [Riot](chat.uport.me) and someone will help you out.
 
-Here we will walk you through all the necessary steps to get up and running with your first dapp.
+### Requirements
 
-Web 3.0 and decentralized applications _require a fundamental rethinking_ of the moving parts of the web so it is important to read everything or you may miss some important elements around the design decisions of what you are working with.
+* [Node.js](https://nodejs.org/en/) version 8 or higher.
 
-**Also please note**: these libraries are in progress and are subject to change. Gitter is a great place for the community to congregate and help each other. Lets get started.
+## 1. Get the uPort App
 
-## Download the Mobile App
+The primary way this app interacts with applications is by scanning QR codes during transactions like disclosing data, verifying previously disclosed information or sharing contacts for example.
 
-Firstly, we will download the uPort mobile app.
+Install the latest mobile client for your smartphone: [uPort iOS](https://itunes.apple.com/us/app/uport-identity-wallet-ethereum/id1123434510?mt=8) | [uPort Android](https://play.google.com/store/apps/details?id=com.uportMobile)
 
-The mobile app is where your [ECDSA private keys](https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet/) are held (inside the secure enclave that's unlocked with your fingerprint). These keys are what controls the administrative layer between your device and the blockchain.
+## 2. Create an Application Identity
 
-You will also have locally stored data in the app that is relevant to you such as your contacts and verified credentials. Essentially, the phone is an extension of you, and uPort is your internet native passport to the secure, decentralized web.
+By default, an identity will be created on the `RINKEBY` Ethereum test network which this guide assumes.  It should be noted that identities can be created on any Ethereum network (`ROPSTEN`, `KOVAN` and `MAINNET`) and can be changed in the mobile app settings.
 
-You can download the mobile app with one of the links below.
+Much like the uPort app is used to create your uPort identity, using our Application Manager you can also create an application identity.
 
-[uPort iOS](https://itunes.apple.com/us/app/uport-identity-wallet-ethereum/id1123434510?mt=8) | [uPort Android](https://play.google.com/store/apps/details?id=com.uportMobile)
+1. Navigate to [uPort App Manager](https://appmanager.uport.me) and authenticate/connect by scanning the QR code with the mobile client and approving the request.
+1. Click `Creat An App` and scan the next QR.  Approving the next request will create a proxy contract that your application will interact with and allow you to set attributes like an app name, logo, etc.
+1. At the next screen fill out your application details and save the value stored in the address field.  It is the MNID/client ID for your application.
+1. Click `Click Here for your App Code`.  The signing key will be a string passed to a SimpleSigner object like `SimpleSigner('bb10b3da70af3cccc804279f9b5085902afdb33da5fd8a55f6eb31818b94343')`.  Save this string somewhere safe.  It is your application's private key.
 
-Once you have downloaded the app, go ahead and create an identity. This identity will be resident on the `RINKEBY` Ethereum test network. You can create more identities on the same network or on other Ethereum networks (`ROPSTEN`, `KOVAN` and `MAINNET`) in the settings menu so you can test counterparty interactions on the **same network**.
+**Note:** *This signing (private) key should be protected.  Do not distribute it publicly.  We display the private key in our demos, guides, and tutorials for an educational purpose and recommend that you use your own signing key and application identifier (MNID) in place of the ones we provide for reference.*
 
-## Register your App
+## 3. Setup Dependencies
 
-Next we shall register an application on the blockchain.
-
-When a users interacts with an app, they will desire to see relevant information, a picture, and any other helpful indicators on their transacation cards that this is the correct endpoint they wish to interact with. This registration process will create an identity for your app so that this becomes possible, and for your frontend to know where to listen to changes on the blockchain.
-
-Let's go create an app over at the [uPort App Manager](https://appmanager.uport.me).
-
-**Make sure to save the signing key somewhere secure! This will not be stored in browser for you for security reasons**.
-
-## Install the Library/SDK
-
-We now have the mobile uPort app and a registered application. Let's install the (uport-connect)[https://github.com/uport-project/uport-connect] and (mnid)[https://github.com/uport-project/mnid] libraries in our project.
-
-**Please make sure you have (Node.js)[https://nodejs.org/en/] version 8 or higher is installed**
-
-uPort and its depending libraries are dependent on the Node.js ecosystem.
-
-_Native (iOS & Android) Application libraries are in the works._
-
-Go to your Terminal and `cd` to the root directory of your project folder.
-
-From the root directory, create a new node.js project and install the two libraries with the Terminal commands below.
-
-Create the node.js project
+From the root of your project folder:
 ```bash
 npm init
-```
-
-Install the libraries
-```bash
 npm install --save uport-connect
 ```
-```bash
-npm install --save mnid
-```
 
-## Quickstart
+1. Create a vanilla node.js project.
+1. Install [uport-connect](https://github.com/uport-project/uport-connect).
 
-Copy and paste this code into a new javascript file in the root directory.
+## 4. Configure and Run Code
+
+Copy/paste this code into a new javascript file in the project's directory.
 
 ```js
-// index.js
-const MNID = require('mnid')
 const uportConnect = require('uport-connect');
 
-const uport = new uportConnect.Connect('NAME_OF_DAPP', {
-    clientId: 'CLIENT_ID',
-    signer: uportConnect.SimpleSigner('SIGNING_KEY');
+const mnidAddress = 'CLIENT_ID';
+const signingKey = 'SIGNING_KEY';
+const appName = 'NAME_OF_DAPP';
+
+const uport = new uportConnect.Connect(appName, {
+    clientId: mnidAddress,
+    network: 'rinkeby'
+    signer: uportConnect.SimpleSigner(signingKey)
+});
+
+// Request credentials
+uport.requestCredentials({
+  requested: ['name'],
 })
 
-const web3 = uport.getWeb3()
-
-export { web3, uport, MNID }
+.then((credentials) => {
+  console.log(credentials);
+})
 ```
 
-Next, go grab our keys from the [uPort App Manager](https://appmanager.uport.me).
-
-**You may copy the code with the injected keys in the accordion at the bottom of your created app's page to help you get started quickly or you can follow the directions below.**
-
-Update 'CLIENT_ID' and 'SIGNING_KEY' with our unique keys. 'NAME_OF_DAPP' can be changed to anything we would like.
+Update *'CLIENT_ID'* and *'SIGNING_KEY'* with the application identifier (MNID) and private signing key that were obtained from the application manager. *'NAME_OF_DAPP*' can be any string that you want to represent the name of the application.  This name will be shown when requests are made with this application identity.
 
 Let's break down what is happening.
 
-1.
-```js
-// index.js
-const MNID = require('mnid')
-const uportConnect = require('uport-connect');
-```
-We import the two require libraries, 'mnid' and 'uport-connect', that we installed and assign them variable names MNID and uportConnect respectively.
-
-More information about the 'mnid' library can be found [here](https://github.com/uport-project/mnid)
-
-2.
-We need to instantiate the uPort object with an app's identity.
-
-We then create an object from the `Connect` function and feed in the 'NAME_OF_DAPP', 'CLIENT_ID', and 'SIGNING_KEY'.
-
 ```js
 const uport = new uportConnect.Connect('NAME_OF_DAPP', {
-    clientId: 'CLIENT_ID',
+    clientId: mnidAddress,
+    network: 'rinkeby',
     signer: uportConnect.SimpleSigner('SIGNING_KEY');
 })
 ```
-The clientID is the public address of your app and the signer (wrapped with the SimpleSigner function) is the signing key of your app that you will help create JWT tokens. These bits of information are given to you after registering an application.
 
-3.
+We create an object from the `Connect` function by passing in 'NAME_OF_DAPP' and an object with 'mnidAddress', and 'signingKey' variables assigned as values.  If a network is not specified *Rinkeby* will be the default.
 
 ```js
-const web3 = uport.getWeb3()
+uport.requestCredentials({
+  requested: ['name'],
+})
+.then((credentials) => {
+  console.log(credentials);
+})
 ```
 
-From the new uport connect object that we created in step 2, we access the web3 object which is used for interacting with the ethereum blockchain.
-
-4.
-```js
-export { web3, uport, MNID }
-```
-
-Lastly, we export these objects from to be used later.
-
+Next we make a request with the configured connect object for a mobile user's name.  The public identifier (MNID) of the mobile identity is also requested by default.  The function returns a promise

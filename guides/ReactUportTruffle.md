@@ -1,13 +1,13 @@
 ---
 title: "React-Uport Truffle Box"
-index: 4 
-category: "overview"
+index: 4
+category: "tutorials"
 type: "content"
 ---
 
 # React-uport Truffle box
 
-This a quickstart guide to requesting credentials and signing attestations with uPort. We will be leveraging the [react-uport truffle box](http://truffleframework.com/boxes/react-uport) which provides a powerful framework and tools to get started.
+This a short tutorial to requesting credentials and signing attestations with uPort.  We will be leveraging the [react-uport truffle box](http://truffleframework.com/boxes/react-uport) which provides a powerful framework and tools for getting started.
 
 ## Setup React Truffle Box
 
@@ -16,7 +16,7 @@ Download react-uport truffle box and follow instructions on [http://truffleframe
 If everything is working correctly, we should see the homepage load when running the project locally.
 
 ## Create the necessary uport-connect objects
- 
+
 The first thing we need to do is create an instance of the uport-connect object for signing transactions and issuing attestations.
 
 Open up the connectors.js file found in 'src/util/connectors.js'.
@@ -32,7 +32,7 @@ After making the modifications, the connectors.js file should look like this.
 '''javascript
 
     import { Connect, SimpleSigner } from 'uport-connect'
-    
+
     export const uport = new Connect('NAME_OF_APP', {
       clientId: 'YOUR_ADDRESS',
       network: 'rinkeby or ropsten or kovan',
@@ -42,7 +42,7 @@ After making the modifications, the connectors.js file should look like this.
 
 ## Request a user's information
 
-The react-uport truffle box already makes a call to the uPort requestCredentials function to login. 
+The react-uport truffle box already makes a call to the uPort requestCredentials function to login.
 
 Code to reference can be found in 'src/user/ui/loginbutton/LoginButtonActions.js'.
 
@@ -50,7 +50,7 @@ Code to reference can be found in 'src/user/ui/loginbutton/LoginButtonActions.js
 
     import { uport } from './../../../util/connectors.js'
     import { browserHistory } from 'react-router'
-    
+
     export const USER_LOGGED_IN = 'USER_LOGGED_IN'
     function userLoggedIn(user) {
       return {
@@ -58,23 +58,23 @@ Code to reference can be found in 'src/user/ui/loginbutton/LoginButtonActions.js
         payload: user
       }
     }
-    
+
     export function loginUser() {
       return function(dispatch) {
         // UPort and its web3 instance are defined in ./../../../util/wrappers.
         // Request uPort persona of account passed via QR
         uport.requestCredentials().then((credentials) => {
           dispatch(userLoggedIn(credentials))
-    
+
           // Used a manual redirect here as opposed to a wrapper.
           // This way, once logged in a user can still access the home page.
           var currentLocation = browserHistory.getCurrentLocation()
-    
+
           if ('redirect' in currentLocation.query)
           {
             return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
           }
-    
+
           return browserHistory.push('/dashboard')
         })
       }
@@ -107,7 +107,7 @@ Next, create the component structure and add a button to the render method. We a
     class AttestButton extends Component {
         attest(){
         }
-    
+
         render(){
             return(
                 <a href="#" className="pure-menu-link" onClick={this.attest()}>Attest</a>
@@ -120,7 +120,7 @@ Next, create the component structure and add a button to the render method. We a
 In the attest method, create a request for a user's uport identity information
 
 '''javascript
-    
+
     attest(){
         uport.requestCredentials().then((credentials) => {
             // Can verify the uport user is verified with the returned 'credentials' object.
@@ -163,11 +163,3 @@ Include the component somewhere on the page with '<AttestButton/>'.
 ## All set!
 
 We now have a component that can request information and issue attestations. Two of the core features of the uport platform. For more details about uport libraries [explore our documentation](https://developer.uport.me/gettingstarted).
-
-
-
-
-
-
-
-
