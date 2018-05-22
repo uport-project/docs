@@ -20,16 +20,16 @@ The primary way this app interacts with applications is by scanning QR codes dur
 
 Install the latest mobile client for your smartphone: [uPort iOS](https://itunes.apple.com/us/app/uport-identity-wallet-ethereum/id1123434510?mt=8) | [uPort Android](https://play.google.com/store/apps/details?id=com.uportMobile)
 
-## 2. Create an Application Identity
+## 2. Get an Application Identity
 
 By default, an identity will be created on the `RINKEBY` Ethereum test network which this guide assumes.  It should be noted that identities can be created on any Ethereum network (`ROPSTEN`, `KOVAN` and `MAINNET`) and can be changed in the mobile app settings.
 
-Much like the uPort app is used to create your uPort identity, using our Application Manager you can also create an application identity.
+Much like the uPort app is used to create your uPort identity, using our Application Manager you can also create an **application** identity.
 
 1. Navigate to [uPort App Manager](https://appmanager.uport.me) and authenticate/connect by scanning the QR code with the mobile client and approving the request.
-1. Click `Creat An App` and scan the next QR.  Approving the next request will create a proxy contract that your application will interact with and allow you to set attributes like an app name, logo, etc.
-1. At the next screen fill out your application details and save the value stored in the address field.  It is the MNID/client ID for your application.
-1. Click `Click Here for your App Code`.  The signing key will be a string passed to a SimpleSigner object like `SimpleSigner('bb10b3da70af3cccc804279f9b5085902afdb33da5fd8a55f6eb31818b94343')`.  Save this string somewhere safe.  It is your application's private key.
+2. Click "**Creat An App**" and scan the next QR.  Approving the next request will create a proxy contract that your application will interact with and allow you to set attributes like an app name, logo, etc.
+3. At the next screen fill out your application details and save the value stored in the address field.  It is the MNID/client ID for your application.
+4. Click "**Click Here for your App Code**".  The signing key will be a string passed to a SimpleSigner object like `SimpleSigner('bb10b3da70af3cccc804279f9b5085902afdb33da5fd8a55f6eb31818b94343')`.  Save this string somewhere safe.  It is your application's private key.
 
 **Note:** *This signing (private) key should be protected.  Do not distribute it publicly.  We display the private key in our demos, guides, and tutorials for an educational purpose and recommend that you use your own signing key and application identifier (MNID) in place of the ones we provide for reference.*
 
@@ -41,10 +41,11 @@ npm init
 npm install --save uport-connect
 npm install --save qrcode-terminal
 ```
+These are the minimum dependencies you'll need for this getting started guide.
 
-1. Create a vanilla node.js project.
-1. Install [uport-connect](https://github.com/uport-project/uport-connect).
-1. Install [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal).  This is not a required dependency for uport-connect.  We are using it to demonstrate QR-code functionality.
+    A. Create a vanilla node.js project.
+    B. Install [uport-connect](https://github.com/uport-project/uport-connect).
+    C. Install [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal).  This is not a required dependency for uport-connect.  We are using it to demonstrate QR-code functionality.
 
 ## 4. Configure and Run Code
 
@@ -77,7 +78,7 @@ uport.requestCredentials({
 })
 ```
 
-Update *'CLIENT_ID'* and *'SIGNING_KEY'* with the application identifier (MNID) and private signing key that were obtained from the application manager. *'NAME_OF_DAPP*' can be any string that you want to represent the name of the application.  This name will be shown when requests are made with this application identity.
+Update *'CLIENT_ID'* and *'SIGNING_KEY'* with the application identifier (MNID) and private signing key that were obtained from the application manager. Replace `NAME_OF_DAPP` with a string that you want to represent the name of the application.  This name will be shown when requests are made with this application identity.
 
 Let's break down what is happening.
 
@@ -88,7 +89,7 @@ const uriHandler = (uri) => {
 }
 ```
 
-After requiring dependencies and configuring the MNID address and signing key, we create a simple function that takes a URI string and returns a QR image.  This will be passed as a handler function for the resulting URI that is generated during a request for credentials.
+Here we provide a simple function that takes a URI string and returns a QR image.  This will be passed as a handler function for the resulting URI that is generated during a request for credentials.
 
 ```js
 const uport = new uportConnect.Connect('NAME_OF_DAPP', {
@@ -99,7 +100,7 @@ const uport = new uportConnect.Connect('NAME_OF_DAPP', {
 })
 ```
 
-Next we create an object from the `Connect` function by passing in the application name, `uriHandler` and an object with `mnidAddress`, and `signingKey` variables assigned as values.  If a network is not specified *Rinkeby* will be the default.
+Next we create an object from the `Connect` function by passing in the application name, `uriHandler` and an object with `mnidAddress` and `signingKey` assigned as values to `cliendId:` and `signer:`.  If a network is not specified *Rinkeby* will be the default.
 
 ```js
 uport.requestCredentials({
@@ -112,4 +113,8 @@ uport.requestCredentials({
 
 Next we make a request with the configured connect object for a mobile user's name.  The public identifier (MNID) of the mobile identity is also requested by default.  `requestCredentials` will generate a URI and pass it to the function `uriHandler` that was utilized when creating the `uport` connect object.  Remember the `uriHandler` will take a URI display it in the form of a QR code.  The function returns a promise that will print the response to the console.
 
-Running this example from a terminal `node <your file name>.js`, you should see a QR code.  Scan this code with the uPort mobile client or your mobile device's native scanner app.
+Running this example from a terminal `node <your file name>.js`, you should see a QR code.  Scan this code with the uPort mobile client or your mobile device's native scanner app to see the response returned by the request.
+
+That's it!  Please check out our other guides and tutorials for more examples of how you can expand this code to do other things, like [Signing Transactions](https://developer.uport.me/signtransactions), or [Attesting Credentials](https://developer.uport.me/attestcredentials).
+
+As always, if you have any questions or issues getting started please reach out to us on [Riot](chat.uport.met) or open an issue on [Github](https://github.com/uport-project).
