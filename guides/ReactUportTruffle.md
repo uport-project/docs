@@ -1,6 +1,6 @@
 ---
 title: "React-Uport Truffle Box"
-index: 4
+index: 0
 category: "tutorials"
 type: "content"
 ---

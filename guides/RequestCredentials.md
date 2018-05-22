@@ -1,6 +1,6 @@
 ---
 title: "Requesting Credentials"
-index: 2
+index: 1
 category: "guides"
 type: "content"
 ---
