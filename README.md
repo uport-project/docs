@@ -7,25 +7,6 @@ Our developer site that is built from this repository can be found here [develop
 
 The uPort site generator assumes convention over configuration.  For the  markdown to be included into our documentation site, consider the following.
 
-### Repository guidelines
-
-Please use this general guidance:
-1. Keep the readme short and sweet and detail how to contribute / support.
-2. Put detailed content, like implementation details in the /docs folder.
-3. Docs folders can have:  guides, tutorials, sdk/api reference documentation.
-4. Follow the documentation guidelines on the docs repo.
-
-One suggestion I have is to use a similar nomenclature as this repo for the /docs folder.
-
-Suggested:
-
-* /docs
-  * /guides
-  * /reference
-  * /overview
-  * index.md (can use this if you want Oloron to have it’s own index. page, otherwise we default to the markdown-frontmatter’s first “guide” at index 0)
-* readme.md (add install information, support and contribution information, NPM release badges, etc. )
-
 ### Header guidelines
 
 1. Be consistent with header hierarchy.  Don't skip sizes.
@@ -75,3 +56,22 @@ type: "content"
 #### Front matter (type)
 
   The type is important for publishing.  If the type is not "content" it will not be published or displayed.
+
+### Repository guidelines
+
+Please use this general guidance:
+1. Keep the readme short and sweet and detail how to contribute / support.
+2. Put detailed content, like implementation details in the /docs folder.
+3. Docs folders can have:  guides, tutorials, sdk/api reference documentation.
+4. Follow the documentation guidelines on the docs repo.
+
+One suggestion I have is to use a similar nomenclature as this repo for the /docs folder.
+
+Suggested:
+
+* /docs
+  * /guides
+  * /reference
+  * /overview
+  * index.md (can use this if you want Oloron to have it’s own index. page, otherwise we default to the markdown-frontmatter’s first “guide” at index 0)
+* readme.md (add install information, support and contribution information, NPM release badges, etc. )
