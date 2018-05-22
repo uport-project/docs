@@ -41,11 +41,11 @@ npm init
 npm install --save uport-connect
 npm install --save qrcode-terminal
 ```
-These are the minimum dependencies you'll need for this getting started guide.
+* Create a vanilla node.js project.
+* Install [uport-connect](https://github.com/uport-project/uport-connect).
+* Install [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal).  This is not a required dependency for uport-connect.  We are using it to demonstrate QR-code functionality.
 
-    A. Create a vanilla node.js project.
-    B. Install [uport-connect](https://github.com/uport-project/uport-connect).
-    C. Install [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal).  This is not a required dependency for uport-connect.  We are using it to demonstrate QR-code functionality.
+These are the minimum dependencies you'll need for this getting started guide.
 
 ## 4. Configure and Run Code
 
