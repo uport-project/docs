@@ -39,10 +39,12 @@ From the root of your project folder:
 ```bash
 npm init
 npm install --save uport-connect
+npm install --save qrcode-terminal
 ```
 
 1. Create a vanilla node.js project.
 1. Install [uport-connect](https://github.com/uport-project/uport-connect).
+1. Install [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal).  This is not a required dependency for uport-connect.  We are using it to demonstrate QR-code functionality.
 
 ## 4. Configure and Run Code
 
@@ -50,12 +52,18 @@ Copy/paste this code into a new javascript file in the project's directory.
 
 ```js
 const uportConnect = require('uport-connect');
+const qrcode = require('qrcode-terminal');
 
 const mnidAddress = 'CLIENT_ID';
 const signingKey = 'SIGNING_KEY';
 const appName = 'NAME_OF_DAPP';
 
-const uport = new uportConnect.Connect(appName, {
+const uriHandler = (uri) => {
+  qrcode.generate(uri, {small: true})
+  console.log(uri)
+}
+
+const uport = new uportConnect.Connect(appName, {uriHandler,
     clientId: mnidAddress,
     network: 'rinkeby'
     signer: uportConnect.SimpleSigner(signingKey)
@@ -64,9 +72,7 @@ const uport = new uportConnect.Connect(appName, {
 // Request credentials
 uport.requestCredentials({
   requested: ['name'],
-})
-
-.then((credentials) => {
+}).then((credentials) => {
   console.log(credentials);
 })
 ```
@@ -76,14 +82,24 @@ Update *'CLIENT_ID'* and *'SIGNING_KEY'* with the application identifier (MNID) 
 Let's break down what is happening.
 
 ```js
+const uriHandler = (uri) => {
+  qrcode.generate(uri, {small: true})
+  console.log(uri)
+}
+```
+
+After requiring dependencies and configuring the MNID address and signing key, we create a simple function that takes a URI string and returns a QR image.  This will be passed as a handler function for the resulting URI that is generated during a request for credentials.
+
+```js
 const uport = new uportConnect.Connect('NAME_OF_DAPP', {
+    uriHandler,
     clientId: mnidAddress,
     network: 'rinkeby',
     signer: uportConnect.SimpleSigner('SIGNING_KEY');
 })
 ```
 
-We create an object from the `Connect` function by passing in 'NAME_OF_DAPP' and an object with 'mnidAddress', and 'signingKey' variables assigned as values.  If a network is not specified *Rinkeby* will be the default.
+Next we create an object from the `Connect` function by passing in the application name, `uriHandler` and an object with `mnidAddress`, and `signingKey` variables assigned as values.  If a network is not specified *Rinkeby* will be the default.
 
 ```js
 uport.requestCredentials({
@@ -94,4 +110,6 @@ uport.requestCredentials({
 })
 ```
 
-Next we make a request with the configured connect object for a mobile user's name.  The public identifier (MNID) of the mobile identity is also requested by default.  The function returns a promise
+Next we make a request with the configured connect object for a mobile user's name.  The public identifier (MNID) of the mobile identity is also requested by default.  `requestCredentials` will generate a URI and pass it to the function `uriHandler` that was utilized when creating the `uport` connect object.  Remember the `uriHandler` will take a URI display it in the form of a QR code.  The function returns a promise that will print the response to the console.
+
+Running this example from a terminal `node <your file name>.js`, you should see a QR code.  Scan this code with the uPort mobile client or your mobile device's native scanner app.
