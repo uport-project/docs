@@ -22,12 +22,12 @@ Install the latest mobile client for your smartphone: [uPort iOS](https://itunes
 
 ## 2. Get an Application Identity
 
-By default, an identity will be created on the `RINKEBY` Ethereum test network which this guide assumes.  It should be noted that identities can be created on any Ethereum network (`ROPSTEN`, `KOVAN` and `MAINNET`) and can be changed in the mobile app settings.
+By default, an identity will be created on the `RINKEBY` Ethereum test network which this guide assumes.
 
 Much like the uPort app is used to create your uPort identity, using our Application Manager you can also create an **application** identity.
 
 1. Navigate to [uPort App Manager](https://appmanager.uport.me) and authenticate/connect by scanning the QR code with the mobile client and approving the request.
-2. Click "**Creat An App**" and scan the next QR.  Approving the next request will create a proxy contract that your application will interact with and allow you to set attributes like an app name, logo, etc.
+2. Click "**Create An App**" and scan the next QR.  Approving the next request will create a proxy contract that your application will interact with and allow you to set attributes like an app name, logo, etc.
 3. At the next screen fill out your application details and save the value stored in the address field.  It is the MNID/client ID for your application.
 4. Click "**Click Here for your App Code**".  The signing key will be a string passed to a SimpleSigner object like `SimpleSigner('bb10b3da70af3cccc804279f9b5085902afdb33da5fd8a55f6eb31818b94343')`.  Save this string somewhere safe.  It is your application's private key.
 
