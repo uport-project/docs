@@ -106,14 +106,16 @@ Next, create the react component structure and add a button to the render method
 
 ```js
 
-function attest(){
-  
-}
+
 
 class AttestButton extends Component {
+  attest(){
+    
+  }
+
   render(){
       return(
-          <a href="#" className="pure-menu-link" onClick={attest}>Attest</a>
+          <button href="#" className="pure-menu-link" onClick={this.attest}>Attest</button>
         )
   }
 }
@@ -125,7 +127,7 @@ In the attest method, create a request for a user's uport identity information
 
 ```js
 
-function attest(){
+attest(){
   uport.requestCredentials().then((credentials) => {
       // Can verify the uport user is verified with the returned 'credentials' object.
   })
@@ -137,7 +139,7 @@ After verifying the uport users identity, we can issue an attestation. For this 
 
 ```js
 
-function attest(){
+attest(){
   uport.requestCredentials().then((credentials) => {
       // Can verify the uport user is verified with the returned 'credentials' object.
       var d = new Date();
