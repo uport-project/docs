@@ -102,19 +102,20 @@ import { uport } from './../../../util/connectors.js'
 
 ```
 
-Next, create the component structure and add a button to the render method. We are adding an onClick action to run the attest method which will hold our code for requesting and attesting.
+Next, create the react component structure and add a button to the render method. We are adding an onClick action to run the attest method which will hold our code for requesting and attesting.
 
 ```js
 
-class AttestButton extends Component {
-    attest(){
-    }
+function attest(){
+  
+}
 
-    render(){
-        return(
-            <a href="#" className="pure-menu-link" onClick={this.attest()}>Attest</a>
-          )
-    }
+class AttestButton extends Component {
+  render(){
+      return(
+          <a href="#" className="pure-menu-link" onClick={attest}>Attest</a>
+        )
+  }
 }
 export default AttestButton
 
@@ -124,10 +125,10 @@ In the attest method, create a request for a user's uport identity information
 
 ```js
 
-attest(){
-    uport.requestCredentials().then((credentials) => {
-        // Can verify the uport user is verified with the returned 'credentials' object.
-    })
+function attest(){
+  uport.requestCredentials().then((credentials) => {
+      // Can verify the uport user is verified with the returned 'credentials' object.
+  })
 }
 
 ```
@@ -136,20 +137,20 @@ After verifying the uport users identity, we can issue an attestation. For this 
 
 ```js
 
-attest(){
-    uport.requestCredentials().then((credentials) => {
-        // Can verify the uport user is verified with the returned 'credentials' object.
-        var d = new Date();
-        var month = ['Jan', 'Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov', 'Dec'];
-        uport.attestCredentials({
-          sub: credentials.address,
-          claim: {
-            "Event": "Ethereal Summit Conference",
-            "Date": month[d.getMonth()] + " " + d.getDate() + "," + d.getFullYear(),
-            "Details": "Proof of Attendance"
-          }
-        })
+function attest(){
+  uport.requestCredentials().then((credentials) => {
+      // Can verify the uport user is verified with the returned 'credentials' object.
+      var d = new Date();
+      var month = ['Jan', 'Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov', 'Dec'];
+      uport.attestCredentials({
+        sub: credentials.address,
+        claim: {
+          "Event": "Ethereal Summit Conference",
+          "Date": month[d.getMonth()] + " " + d.getDate() + "," + d.getFullYear(),
+          "Details": "Proof of Attendance"
+        }
       })
+    })
 }
 
 ```
