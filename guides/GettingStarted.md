@@ -117,4 +117,4 @@ Running this example from a terminal `node <your file name>.js`, you should see 
 
 That's it!  Please check out our other guides and tutorials for more examples of how you can expand this code to do other things, like [Signing Transactions](https://developer.uport.me/signtransactions), or [Attesting Credentials](https://developer.uport.me/attestcredentials).
 
-As always, if you have any questions or issues getting started please reach out to us on [Riot](chat.uport.met) or open an issue on [Github](https://github.com/uport-project).
+As always, if you have any questions or issues getting started please reach out to us on [Riot](chat.uport.me) or open an issue on [Github](https://github.com/uport-project).
