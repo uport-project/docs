@@ -64,9 +64,10 @@ const uriHandler = (uri) => {
   console.log(uri)
 }
 
-const uport = new uportConnect.Connect(appName, {uriHandler,
+const uport = new uportConnect.Connect(appName, {
+    uriHandler,
     clientId: mnidAddress,
-    network: 'rinkeby'
+    network: 'rinkeby',
     signer: uportConnect.SimpleSigner(signingKey)
 });
 
