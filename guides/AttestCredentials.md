@@ -16,7 +16,7 @@ type: "content"
 1. Browser displays a QR code (if desktop) or loads a URI that opens the uPort app (if mobile) to initiate the login / share data flow outlined in [requesting credentials](/requestcredentials)
 1. After the user scans (on desktop) or consents to open the app (on mobile), the app displays a card asking the user to share their data. This will always contain the user’s address and may contain a push token as well as any other data the app chooses to request.
 1. If user consents, mobile app posts the address (and maybe also a push token or other data) via Chasqui (if desktop) or encoded in a JWT appended to a URI (if mobile)
-1. Browser grabs the address & data from Chasqui or the URL and rremoves QR code from UI.
+1. Browser grabs the address & data from Chasqui or the URL and removes QR code from UI.
 1. When the app is ready to send an attestation (maybe they completed a background check, maybe the user sent funds, maybe the user shared a piece of personal data), the app encodes the relevant data in a JWT and signs it.
 
 </div>
