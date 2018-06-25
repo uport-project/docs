@@ -16,7 +16,7 @@ The first and most basic step you should take is to allow your user to connect t
 <div class="overview-list" markdown=1>
 
 1. Browser displays QR code with URI
-1. Browser starts polling chasqui using the sessionId to check if Mobile has posted the address & any other info required by the 3rd party app.
+1. Browser starts polling Chasqui using the sessionId to check if Mobile has posted the address & any other info required by the 3rd party app.
 1. Mobile scans QR code, displays card asking the user to share their address (and, optionally, other relevant data)
 1. If user consents: Mobile grabs sessionId from URI, posts address & data to the Chasqui API using the sessionId
 1. Browser grabs the address & data from Chasqui, removes QR code from UI
