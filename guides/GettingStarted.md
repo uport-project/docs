@@ -3,6 +3,7 @@ title: "Getting Started"
 index: 0
 category: "guides"
 type: "content"
+source: "https://github.com/uport-project/docs/blob/develop/guides/GettingStarted.md"
 ---
 
 

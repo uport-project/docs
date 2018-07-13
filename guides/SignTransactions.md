@@ -3,6 +3,7 @@ title: "Signing Transactions"
 index: 3
 category: "guides"
 type: "content"
+source: "https://github.com/uport-project/docs/blob/develop/guides/SignTransactions.md"
 ---
 
 # Signing Transactions

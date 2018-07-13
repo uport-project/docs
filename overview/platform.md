@@ -3,6 +3,7 @@ title: "Platform"
 index: 2
 category: "overview"
 type: "content"
+source: "https://github.com/uport-project/docs/blob/develop/overview/platform.md"
 ---
 
 # PLATFORM
