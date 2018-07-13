@@ -3,6 +3,7 @@ title: "Clients (apps)"
 index: 3
 category: "overview"
 type: "content"
+source: "https://github.com/uport-project/docs/blob/develop/overview/clients.md"
 ---
 
 # **Clients (apps)**

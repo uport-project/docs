@@ -3,6 +3,7 @@ title: "Requesting Credentials"
 index: 1
 category: "guides"
 type: "content"
+source: "https://github.com/uport-project/docs/blob/develop/guides/RequestCredentials.md"
 ---
 
 # Requesting Credentials

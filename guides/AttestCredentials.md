@@ -3,6 +3,7 @@ title: "Attesting Credentials"
 index: 2
 category: "guides"
 type: "content"
+source: "https://github.com/uport-project/docs/blob/develop/guides/AttestCredentials.md"
 ---
 
 # Attesting Credentials
