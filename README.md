@@ -40,6 +40,7 @@ type: "content"
 
 **The following are optional:**
 1. index
+1. announcement
 
 #### Front matter (title)
 
@@ -56,6 +57,10 @@ type: "content"
 #### Front matter (type)
 
   The type is important for publishing.  If the type is not "content" it will not be published or displayed.
+
+#### Front matter (announcement)
+
+  This is used to broadcast a message across all pages on the site.  Use sparingly.
 
 ### Repository guidelines
 

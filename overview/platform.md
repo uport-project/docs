@@ -41,8 +41,8 @@ Open source libraries for developers to quickly start integrating with the uPort
 
 * _[uPort Identity](https://github.com/uport-project/uport-registry):_ Provides a library of uPort identity code including identities, identity managers, and more.
 
-* _[uPort Credentials](https://github.com/uport-project/uport-js):_ Makes it easy to generate JWT Statements, including request tokens and credentials. This is currently wrapped in the uPort JS library.
+* _[uPort Credentials](https://github.com/uport-project/uport-credentials):_ Makes it easy to generate JWT Statements, including request tokens and credentials. This is currently wrapped in the uPort JS library.
 
-* _[uPort JWT](https://github.com/uport-project/uport-js):_ Makes it easy to verify signatures against the uPort PKI. This is currently wrapped in the uPort JS library.
+* _[uPort JWT](https://github.com/uport-project/uport-credentials):_ Makes it easy to verify signatures against the uPort PKI. This is currently wrapped in the uPort JS library.
 
 * _uPort Mobile SDK:_ Native mobile libraries for uPort-enabled mobile applications. Coming soon.
