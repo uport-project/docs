@@ -3,7 +3,7 @@ title: "Releases"
 index: 100
 category: "overview"
 type: "content"
-announcement: "Updates required for Uport Connect and Uport JS!  Visit developer.uport.me/releases for more information."
+announcement: "Updates required for Uport Connect and Uport JS!  Visit https://developer.uport.me/releases for more information."
 source: "https://github.com/uport-project/docs/blob/develop/overview/releases.md"
 ---
 
