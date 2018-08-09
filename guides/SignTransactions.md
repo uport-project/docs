@@ -1,6 +1,6 @@
 ---
 title: "Signing Transactions"
-index: 3
+index: 4
 category: "guides"
 type: "content"
 source: "https://github.com/uport-project/docs/blob/develop/guides/SignTransactions.md"
