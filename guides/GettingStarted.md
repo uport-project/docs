@@ -117,6 +117,6 @@ Next we make a request with the configured connect object for a mobile user's na
 
 Running this example from a terminal `node <your file name>.js`, you should see a QR code.  Scan this code with the uPort mobile client or your mobile device's native scanner app to see the response returned by the request.
 
-That's it!  Please check out our other guides and tutorials for more examples of how you can expand this code to do other things, like [Signing Transactions](https://developer.uport.me/signtransactions), or [Attesting Credentials](https://developer.uport.me/attestcredentials).
+That's it!  Please check out our other guides and tutorials for more examples of how you can expand this code to do other things, like [Signing Transactions](/signtransactions), or [Attesting Credentials](/attestcredentials).
 
 As always, if you have any questions or issues getting started please reach out to us on [Riot](chat.uport.me) or open an issue on [Github](https://github.com/uport-project).
