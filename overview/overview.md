@@ -139,3 +139,80 @@ uPort is built using open standards and simple libraries built on them. We use a
 | Identity Creation/Management | [Ethereum DID Registry Contract](https://github.com/uport-project/ethr-did-registry) | ethr-did | Ethereum Identity Wallet Developers |
 | Blockchain API | [Ethereum JSON-RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) | [Web3](https://github.com/ethereum/web3.js/) or [EthJS](https://github.com/ethjs) |   |
 | Blockchain | [Ethereum](https://ethereum.org) |   |   |
+
+## Releases
+
+## Uport Connect
+
+### *What's New in Version [uport-connect@0.7.5](https://github.com/uport-project/uport-connect/releases/tag/v0.7.5)*
+
+* Backward compatible Ethr-DID response support that allows communication with IDs created with the ethr-did registry in the upcoming uPort mobile client release.
+* Use the networkAddress key/value received in responses for all blockchain interactions if you have not already switched from using the address key/value. A networkAddress will continue to be a MNID encoded address for the network your app is configured for. It you are using the uPort subProvider this already happens by default. Continue to use the address key/value as you have for all other interactions (i.e as the subject for attestations issued). In the transition to DIDs the address key/value in a response may be a DID or MNID, but the libraries will set this appropriately to support both new and old mobile app identities.
+
+### *Steps to migrate*
+
+* npm install uport-connect
+* Use networkAddress key/value in response for all blockchain interactions instead of address key/value if you have not switched already. Continue to use address key/value for all other interactions (i.e attestations). This change may not be required, its dependent on your current implementation.
+
+### *Legacy support*
+
+* Versions _[0.7.3](https://github.com/uport-project/uport-connect/tree/v0.7.3)_ and earlier will continue to work with all uPort Mobile clients until the uPort Mobile clients with DID support are released in August (exact date listed once known).
+* Once the new uPort Mobile clients are released, these clients will only work with versions 0.7.5 and later minor versions of uport-connect.
+* 0.7.5 and later minor versions will remain backwards compatible, working with both current uPort Mobile clients and future releases.
+
+## Uport JS
+
+### *What's New in Version uport@0.6.3*
+
+* Backward compatible Ethr-DID response support that allows communication with IDs created with the ethr-did registry in the upcoming uPort mobile client release.
+* Use the networkAddress key/value received in responses for all blockchain interactions if you have not already switched from using the address key/value. A networkAddress will continue to be a MNID encoded address for the network your app is configured for. It you are using the uPort subProvider this already happens by default. Continue to use the address key/value as you have for all other interactions (i.e as the subject for attestations issued). In the transition to DIDs the address key/value in a response may be a DID or MNID, but the libraries will set this appropriately to support both new and old mobile app identities.
+
+
+### *Steps to migrate*
+
+* npm install uport
+* Use networkAddress key/value in response for all blockchain interactions instead of address key/value if you have not switched already. Continue to use address key/value for all other interactions (i.e attestations). This change may not be required, its dependent on your current implementation.
+
+### *Legacy support*
+
+* Versions _[version 0.6.2](https://github.com/uport-project/uport-js/tree/v0.6.2)_ and earlier will continue to work with all uPort Mobile clients until the uPort Mobile clients with DID support are released in August (exact date listed once known).
+* Once the new uPort Mobile clients are released, these clients will only work with versions 0.6.3 and later minor versions of uport-connect.
+* 0.6.3 and later minor versions will remain backwards compatible, working with both current uPort Mobile clients and future releases.
+
+
+## Glossary 
+
+| Term                                                                                  | Definition                                                                                                                                                                                                |
+| ---                                                                                   | ---                                                                                                                                                                                                       |
+| Attestation                                                                           | These are synonymous with Credentials.  In uPort attestations are cryptographically signed claims.                                                         |
+| Application Identity                                                                  | Just like a user has a uPort identity, applications and dApps that interact with uPort users need their own identity                                                                                      |
+| Claim                                                                                 |  A claim is a record of an attestation that has been verified.                                                                                                                                            |
+| Credentials                                                                           | Credentials are pieces of information about a uPort user that may be requested and/or verified by applications.  They are, in their essence, signed claims that are stored with the uPort user's profile. |
+| dAPP                                                                                  | Distributed Application, generally one that relies on serverless architectures.                                                                                                                           |
+| DID                                                                                   | Decentralized Identifier used to retrieve a DID document as defined by the [W3C Community Group](https://w3c-ccg.github.io/did-spec/)                                                                     |
+| DID Document                                                                          | A DID document contains public keys and other information about the DID that is used to verify interactions with a DID.  To see one implementation of how uPort resolves a DID document, see our [Ethr-DID-Resolver](https://github.com/uport-project/ethr-did-resolver ) library.  Other types of DID resolvers offered by uPort: [uPort-DID-Resolver](https://github.com/uport-project/uport-did-resolver),  [muPort-DID-Resolver](https://github.com/uport-project/muport-did-resolver), [Secp256k1-DID-Resolver](https://github.com/uport-project/secp256k1-did-resolver)                |
+| [DID-Resolver](https://github.com/uport-project/did-resolver)                         | A library that provides a simple interface to resolve DID documents from a decentralized identifier.                                                                                                      |
+| [Ethereum-Claims-Registry](https://github.com/uport-project/ethereum-claims-registry) | A smart contract that manages the storage of claims (attestations) made by identities and other smart contracts on the ethereum blockchain.                                                                |
+| [Ethr-DID](https://github.com/uport-project/ethr-did)                                 | The EthrDid library allows you to create Decentralized Identifiers and manage their interactions in your own app.                                                                                                                                                                                                          |                                                                                                                                                                                |
+| [Ethr-DID-Registry]( https://github.com/uport-project/ethr-did-registry )      | A smart contract that enables the resolution and management of decentralized identifiers (DIDs)                                                                                    |
+| [Ethr-DID-Resolver](https://github.com/uport-project/ethr-did-resolver )      | A library that takes an ethereum address as a decentralized identifier and wraps it in a DID document and also supports key management                                                                                                                                                      |
+| Identity                 | An identity in uPort is really just someone or something that can sign data or transactions and also receive signed data about itself.  Essentially it is an address on a decentralized network, controlled by a private signing key |
+| Issuer                   | A reference to the identity of an application or user that issued a signed JWT                                                                                                                                                       |
+| muPort(Simple ID)        | A way without a Proxy contract to create, update, and recover uPort identities in addition to encryption and decryption of data related to the identity                                                                                                                                                              |
+| [muPort-DID-Resolver](https://github.com/uport-project/muport-did-resolver)    | A DID resolver for muPort/SimpleID resolution with support for creating identities.                                                                                              |
+| PKI                      | Public Key Infrastructure.  uPort implements a simple PKI to verify off-chain messages                                                                                                                                               |
+| Public Key               |  Used to verify privately signed data                                                                                                                                                                                                |
+| Private Key              |  Used to sign data and transactions                                                                                                                                                                                                  |
+| Recovery Seed            |  A 12-word pass phrase used to retrieve the private keys of an Identity                                                                                                                                                              |
+| [Secp256k1-DID-Resolver](https://github.com/uport-project/secp256k1-did-resolver) | A DID resolver that uses secp256k1 public keys as decentralized identifiers, as oppose to an ethereum address.                                                                                     |
+| Selective Disclosure     | The user selective discloses information about themselves based on a signed request.                                                                                                                           |
+| Segregated Account       | An ethereum account specifically used for interactions between your app and your user. It is called *segregated* because for privacy reasons it segregates the transactions to a single app, making it harder to correlate who the user is for external parties.                                                                                     |
+| Signing                  | The act of using a private key to sign data and transactions.                                                                                                                                                                        |
+| Signing Key              | Also referred to as a Private key                                                                                                                                                                                                    |
+| Testnet                  | Ethereum test networks used by developers for testing out their applications. uPort supports both the [Rinkeby](https://www.rinkeby.io/#stats) and [Kovan](https://kovan-testnet.github.io/website/) test networks.                                                                                                                                                                                    |
+| [uPort-DID-Driver](https://github.com/uport-project/uport-did-drive)       | A driver implemented as a docker image that wraps all uPort resolvers for use in the Decentralized Identity Foundation's [Universal Resolver](https://github.com/decentralized-identity/universal-resolver)                                        |
+| [uPort-DID-Resolver](https://github.com/uport-project/uport-did-resolver)     | A library that facilitates the resolution of legacy uPort DID documents                                                                                                           |
+| web3                     | Can be a reference to distributed application architectures, but also [web3.js](https://github.com/ethereum/web3.js/)                                                                                                                                                         |
+| Verified Claim           | A cryptographically signed claim by one party about another party.  Synonymous with Credentials.                                                                                                                                     |
+|                          |                                                                                                                                                                                                                                      |
+
