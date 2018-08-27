@@ -1,5 +1,6 @@
-uPort Docs
-============
+##Deprecated!
+
+Content moved to [here](https://github.com/uport-project/uport-project.github.io/tree/develop/markdown/docs)
 
 Our developer site that is built from this repository can be found here [developer.uport.me](https://developer.uport.me). The developer site generator is located [here](https://github.com/uport-project/uport-project.github.io).
 
