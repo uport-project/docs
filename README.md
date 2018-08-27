@@ -1,8 +1,7 @@
-##Deprecated!
+## Deprecated -- Content moved.
 
-Content moved to [here](https://github.com/uport-project/uport-project.github.io/tree/develop/markdown/docs)
-
-Our developer site that is built from this repository can be found here [developer.uport.me](https://developer.uport.me). The developer site generator is located [here](https://github.com/uport-project/uport-project.github.io).
+Docs content moved [here](https://github.com/uport-project/uport-project.github.io/tree/develop/markdown/docs)
+The developer site source is located [here](https://github.com/uport-project/uport-project.github.io).
 
 ## uPort markdown conventions for doc-site generation
 
